@@ -6,10 +6,6 @@ import AddSubcategoryWrapper from "../../subcategory/add/AddSubcategoryWrapper"
 
 
 
-
-
-
-
 const HomeLayout = () => {
 
 

@@ -21,9 +21,10 @@ const LoginWrapper = () => {
 
   const handleSubmit = async (values: any) => {
     try {
-      const response = await login(values).unwrap(); 
-      const authToken = response?.data?.token;
-
+      const response = await login(values);
+      console.log(response,"res")
+      const authToken = response?.data?.data?.token;
+      console.log("token", authToken)
       if (authToken) {
         localStorage.setItem('authToken', authToken);
         navigate('/home');

@@ -4,32 +4,29 @@ const CategorySlice = ApiSlice.injectEndpoints({
     endpoints: (builder) => ({
 
         AddCategory: builder.mutation({
-            query: ({body, token}) => ({
+            query: (body) => ({
                 url: "/category/create",
                 method: "POST",
-                body,
-                headers:{"x-access-token": token}
+                body
 
             }),
             invalidatesTags: ["category"]
         }),
 
         GetCategory: builder.query({
-            query: ({body, token}) => ({
+            query: () => ({
                 url: "category/getAllcategory",
                 method: "GET",
-                body,
-                headers:{"x-access-token": token}
+            
             }),
             providesTags: ["category", "delete", "update"]
         }),
         
         GetSingleCategory: builder.query({
-            query: ({data, token, id}) => ({
+            query: ({ id}) => ({
                 url: `/category/getSingleCategory/${id}`,
                 method: "GET",
-                body: data,
-                headers:{"x-access-token": token}
+                
             }),
         }),
 
@@ -37,21 +34,19 @@ const CategorySlice = ApiSlice.injectEndpoints({
 
 
         deleteCategory: builder.mutation({
-            query:({id, token}) => ({
+            query:(id) => ({
                 url: `/category/delete/${id}`,
                 method: "DELETE",
-                body: id,
-                headers:{"x-access-token": token}
+                body: id
             }),
             invalidatesTags: ["delete"]
         }),
 
       editCategory: builder.mutation({
-        query:({data, token, id}) => ({
+        query:({data ,id}) => ({
             url: `/category/update/${id}`,
             method: "PATCH",
-            body: data,
-            headers:{"x-access-token": token}
+            body: data
         }),
         invalidatesTags: ["update"]
       })

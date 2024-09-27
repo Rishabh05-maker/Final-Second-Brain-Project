@@ -1,12 +1,51 @@
-import React from 'react'
-import AddSubcategoryForm from '../layout/AddSubcategoryForm'
+import { object, string } from 'yup';
+import { Form, Formik } from 'formik';
+import { useNavigate} from 'react-router-dom'; 
+import AddSubcategoryForm from '../layout/AddSubcategoryForm';
+import { useAddSubcategoryMutation } from '../../slice/SubcategorySlice';
 
-type Props = {}
+const AddSubcategoryWrapper = ({categoryId}) => {
+  const [AddSubcategory] = useAddSubcategoryMutation();
+  const navigate = useNavigate();
 
-const AddSubcategoryWrapper = (props: Props) => {
+  
+  const initialValues = {
+    subcategoryName: '',
+    categoryId
+    
+  };
+
+  const validationSchema = object({
+    subcategoryName: string().required('Enter subcategory name'),
+  });
+
+  const handleSubmit = (values: any) => {
+    AddSubcategory(values).then((res) => {
+      if (res.data) {
+        navigate('/home');
+      }
+    });
+  };
+
   return (
-    <AddSubcategoryForm/>
-  )
-}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {(formikProp) => (
+        <Form>
+          <AddSubcategoryForm formikProp={formikProp} />
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
-export default AddSubcategoryWrapper
+export default AddSubcategoryWrapper;
+
+
+
+
+
+

@@ -6,17 +6,17 @@ const SubcategorySlice = ApiSlice.injectEndpoints({
 
 
         AddSubcategory: builder.mutation({
-            query: (body) => ({
-                url: "/subcategory/createsubcategory",
+            query: ({subcategoryName, categoryId}) => ({
+                url: '/subcategory/createsubcategory',
                 method: "POST",
-                body
+                body: {subcategoryName, categoryId}
             })
         }),
         GetSubcategory: builder.query({
-            query: (body) => ({
-                url: "/subcategory/getAllSubcategory",
+            query: () => ({
+                url: `/category/getAllCategories`,
                 method: "GET",
-                body
+            
             })
         })
 
@@ -25,12 +25,17 @@ const SubcategorySlice = ApiSlice.injectEndpoints({
     })
 })
 
-
-
-
-
-
-
+export const {
+useAddSubcategoryMutation, useGetSubcategoryQuery
+} = SubcategorySlice
 
 
 export default SubcategorySlice
+
+
+
+
+
+
+
+

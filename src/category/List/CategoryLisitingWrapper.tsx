@@ -27,7 +27,6 @@ const handleDeleteCategory = (_id) => {
 
 
 
-
   return (
    <>
     { data ?  <CategoryListing data={data} deleteCategory={handleDeleteCategory}  /> : <p>No categories available</p> }
