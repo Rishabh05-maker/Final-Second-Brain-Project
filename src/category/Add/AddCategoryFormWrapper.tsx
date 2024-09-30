@@ -12,6 +12,7 @@ const AddCategoryFormWrapper = () => {
 const [AddCategory] = useAddCategoryMutation()
 const navigate = useNavigate()
 
+
 const initialValues = {
   categoryName: ""
 }
@@ -39,7 +40,7 @@ const handleSubmit = (vlaues: any,  ) => {
   {
     (formikProp) => {
       return (
-      <Form> <AddCategoryForm buttonName={"Add category"} formikProp = {formikProp}/> </Form>
+      <Form> <AddCategoryForm buttonName={"Add category"}  heading={"Add category"} formikProp = {formikProp}/> </Form>
       )
     }
   }

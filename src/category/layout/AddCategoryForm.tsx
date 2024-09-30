@@ -1,19 +1,21 @@
 import AtmTextField from "../../components/atoms/AtmTextField";
 import { ErrorMessage } from "formik";
 
-const AddCategoryForm = ({ formikProp, buttonName }: Props) => {
-  const { values, handleChange, isSubmitting } = formikProp;
+const AddCategoryForm = ({formikProp, buttonName ,heading}: Props) => {
+  const {values,handleChange,isSubmitting}=formikProp
 
   return (
     <div className="flex justify-start gap-3 mt-4 ml-4 m-auto">
+
       {/* Category input field */}
       <div className="border-1 bg-gray-300 rounded-lg shadow-lg font-serif p-5">
+      <h1 className="text-center">{heading}</h1>
         <AtmTextField
           className="border-pink-300 w-full"
           name="categoryName"
           placeholder="Category name"
-          label="Add Category"
-          value={values.categoryName}
+          label=" Category name"
+          vlaue={values.categoryName}
           onChange={handleChange}
         />
         <p className="text-red-500 text-sm">

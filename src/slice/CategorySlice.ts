@@ -23,15 +23,12 @@ const CategorySlice = ApiSlice.injectEndpoints({
         }),
         
         GetSingleCategory: builder.query({
-            query: ({ id}) => ({
+            query: (id) => ({
                 url: `/category/getSingleCategory/${id}`,
                 method: "GET",
                 
             }),
         }),
-
-
-
 
         deleteCategory: builder.mutation({
             query:(id) => ({

@@ -9,6 +9,7 @@ import HomeLayout from '../layout/homeLayout/HomeLayout'
 import AddCategoryFormWrapper from '../category/Add/AddCategoryFormWrapper'
 import AddSubcategoryWrapper from '../subcategory/add/AddSubcategoryWrapper'
 import SubcategoryListWrapper from '../subcategory/list/SubcategoryListWrapper'
+import EditSubcategoryWrapper from '../subcategory/Edit/EditSubcategoryWrapper'
 
 
 
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
 {
   path: "/getsubcategory",
   element: <SubcategoryListWrapper/>
+},
+
+{
+  path: "/edit-subcategory/:id",
+  element: <EditSubcategoryWrapper/>
 }
 
 ])

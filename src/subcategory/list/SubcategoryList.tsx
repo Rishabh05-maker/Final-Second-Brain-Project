@@ -4,32 +4,48 @@ import { CiEdit } from "react-icons/ci";
 interface Subcategory {
   _id: string;
   subcategoryName: string;
-  categoryId: string; // Include categoryId in the subcategory interface if needed
+  categoryId: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface Category {
+  categoryId: string;
+  categoryName: string;
+  subCategories: Subcategory[];
 }
 
 interface Props {
-  data: Subcategory[];
-  categoryId: string; // Add categoryId as a prop
+  data: { data: Category[] }; // Adjust the data structure to match the provided JSON structure
+  categoryId: string;
 }
 
-const SubcategoryList = ({ data, categoryId }: Props) => {
+const SubcategoryList = ({ data, categoryId, deletesubcategory, handleEdit }: Props) => {
+  // Find the category based on the passed categoryId
+  const category = data.data.find((cat) => cat.categoryId === categoryId);
+
   return (
     <div>
-      {data?.data?.subCategories.map((subcategory) => (
-        <div key={subcategory._id} className="flex justify-between items-center p-2 border-b">
-          <span>{subcategory.subcategoryName}</span>
-          <div>
-            <button className="text-green-500">
-              <CiEdit />
-            </button>
-            <button className="text-red-400 ml-2">
-              <MdDeleteForever />
-            </button>
+      {/* Check if the category exists before mapping */}
+      {category ? (
+        category.subCategories.map((subcategory) => (
+          <div key={subcategory._id} className="flex justify-between items-center p-2 border-b">
+            <span>{subcategory.subcategoryName}</span>
+            <div>
+              <button className="text-green-500" onClick={()=>{handleEdit(subcategory._id)}}>
+                <CiEdit />
+              </button>
+
+              <button onClick={()=>{deletesubcategory(subcategory._id)}} className="text-red-400 ml-2">
+                <MdDeleteForever />
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
-      {/* You can display categoryId if necessary */}
-      <p>Category ID: {categoryId}</p>
+        ))
+      ) : (
+        <p>No subcategories found for this category.</p>
+      )}
+      
     </div>
   );
 };

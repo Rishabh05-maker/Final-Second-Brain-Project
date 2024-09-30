@@ -16,19 +16,21 @@ interface Props {
 }
 
 
-const CategoryListing = ({data, deleteCategory}: Props) => {
+const CategoryListing = ({data, deleteCategory,handleEdit}: Props) => {
 
   return (
       <div className="grid lg:grid-cols-4 grid-cols-1 w-full gap-2 mt-8  ">
       {data?.data.map((category) => {
         return (
           
-          <div className="flex-1 bg-white p-4 rounded shadow-lg border border-pink-100 " key={category.id}>
+          <div className="flex-1 bg-white p-4 rounded shadow-lg border border-pink-100 " key={category._id}>
 
             <h1 className="text-xl lg:text-2xl text-slate-600 font-serif my-4 flex justify-between items-center truncate">{category.categoryName}
             <div>
               
-            <Link to={`/edit-category/${category._id}?categoryName/${category.categoryName}`}> <button className="text-green-500"><CiEdit /></button></Link>
+            
+             <button className="text-green-500"  onClick={()=>handleEdit(category._id)}><CiEdit /></button>
+             
 
             <button onClick={()=> deleteCategory(category._id) }  className="text-red-400 ml-2"><MdDeleteForever /></button>
             </div>
@@ -37,7 +39,7 @@ const CategoryListing = ({data, deleteCategory}: Props) => {
 
             <AddSubcategoryWrapper categoryId = {category._id}  />
             
-            <SubcategoryListWrapper categoryId = {category._id}  />
+           <SubcategoryListWrapper categoryId = {category._id} />
           </div>
          
         );
