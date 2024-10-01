@@ -22,7 +22,7 @@ const AddSubcategoryForm = ({ formikProp }: Props) => {
           className="border-pink-300 p-0 w-full placeholder:text-sm"
           name="subcategoryName"
           placeholder="Enter subcategory name"
-          value={values.subcategoryName} // updated from `vlaue`
+          vlaue={values.subcategoryName} // updated from `vlaue`
           onChange={handleChange}
         />
       </div>

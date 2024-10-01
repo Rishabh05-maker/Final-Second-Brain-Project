@@ -10,6 +10,8 @@ import AddCategoryFormWrapper from '../category/Add/AddCategoryFormWrapper'
 import AddSubcategoryWrapper from '../subcategory/add/AddSubcategoryWrapper'
 import SubcategoryListWrapper from '../subcategory/list/SubcategoryListWrapper'
 import EditSubcategoryWrapper from '../subcategory/Edit/EditSubcategoryWrapper'
+import AddResourcesWrapper from '../resources /add/AddResourcesWrapper'
+import ResourcesListWrapper from '../resources /list/ResourcesListWrapper'
 
 
 
@@ -55,7 +57,20 @@ const router = createBrowserRouter([
 {
   path: "/edit-subcategory/:id",
   element: <EditSubcategoryWrapper/>
+},
+
+
+// Resources Page routes
+
+{
+  path: "/addresources",
+  element: <AddResourcesWrapper/>
+},
+{
+  path: "/resourceslist",
+  element: <ResourcesListWrapper/>
 }
+
 
 ])
 
