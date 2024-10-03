@@ -5,6 +5,7 @@ import AddSubcategoryForm from '../layout/AddSubcategoryForm';
 import { useAddSubcategoryMutation } from '../../slice/SubcategorySlice';
 
 const AddSubcategoryWrapper = ({categoryId}) => {
+  
   const [AddSubcategory] = useAddSubcategoryMutation();
   const navigate = useNavigate();
 
@@ -32,6 +33,7 @@ const AddSubcategoryWrapper = ({categoryId}) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
+      enableReinitialize={true}
     >
       {(formikProp) => (
         <Form>

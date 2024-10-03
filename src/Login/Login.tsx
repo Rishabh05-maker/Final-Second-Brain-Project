@@ -1,11 +1,12 @@
 import { ErrorMessage, FormikProps } from "formik";
 import { FaUserEdit } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 type Props = { formikProps: FormikProps<any> };
 
 const Login = ({ formikProps }: Props) => {
-  const { values, handleChange, isSubmitting, resetForm } = formikProps;
+  const { values, handleChange, isSubmitting,  } = formikProps;
 
   return (
     <div className='h-screen flex justify-center items-center flex-col gap-3 m-auto bg-[url("https://images.pexels.com/photos/3137068/pexels-photo-3137068.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")] bg-cover px-4 sm:px-8'>
@@ -59,7 +60,7 @@ const Login = ({ formikProps }: Props) => {
           </button>
         </div>
 
-        <p className="mt-8 text-center text-gray-600">Don't have an account? Create Account</p>
+        <p className="mt-8 text-center text-gray-600">Don't have an account? <Link to={'/registration'}> Create Account</Link> </p>
       </div>
 
       <p className="text-center text-gray-600 mt-4 sm:mt-8">Organize Your Digital Life and Unlock Your Creative Potential</p>

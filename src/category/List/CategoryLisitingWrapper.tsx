@@ -10,7 +10,6 @@ const navigate=useNavigate()
 
 
  
- 
 if(isLoading){
   
   return <p>Loading.....</p>

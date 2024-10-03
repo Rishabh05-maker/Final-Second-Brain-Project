@@ -1,5 +1,7 @@
 import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
+import { Link } from "react-router-dom";
+
 
 interface Subcategory {
   _id: string;
@@ -16,21 +18,21 @@ interface Category {
 }
 
 interface Props {
-  data: { data: Category[] }; // Adjust the data structure to match the provided JSON structure
+  data: { data: Category[] }; 
   categoryId: string;
 }
 
-const SubcategoryList = ({ data, categoryId, deletesubcategory, handleEdit }: Props) => {
-  // Find the category based on the passed categoryId
+const SubcategoryList = ({ data, categoryId, deletesubcategory, handleEdit,  }: Props) => {
+
   const category = data.data.find((cat) => cat.categoryId === categoryId);
 
   return (
     <div>
-      {/* Check if the category exists before mapping */}
+   
       {category ? (
         category.subCategories.map((subcategory) => (
           <div key={subcategory._id} className="flex justify-between items-center p-2 border-b">
-            <span>{subcategory.subcategoryName}</span>
+            <span> <Link to={`/resources/${subcategory._id}`}> {subcategory.subcategoryName} </Link>  </span>
             <div>
               <button className="text-green-500" onClick={()=>{handleEdit(subcategory._id)}}>
                 <CiEdit />
@@ -39,8 +41,10 @@ const SubcategoryList = ({ data, categoryId, deletesubcategory, handleEdit }: Pr
               <button onClick={()=>{deletesubcategory(subcategory._id)}} className="text-red-400 ml-2">
                 <MdDeleteForever />
               </button>
+             
             </div>
           </div>
+          
         ))
       ) : (
         <p>No subcategories found for this category.</p>

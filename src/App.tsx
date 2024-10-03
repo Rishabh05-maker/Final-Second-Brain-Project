@@ -9,9 +9,12 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   return (
     <div>
-      <Provider store={Store}>
+    
+    
       <PagesRoutes/>
-      </Provider>
+
+
+   
       <ToastContainer/>
     </div>
 

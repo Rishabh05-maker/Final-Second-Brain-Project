@@ -15,7 +15,7 @@ const AtmTextField = ({name, vlaue, onChange, label, placeholder, className, }: 
   return (
 <div className="" >
     <label className="text-slate-700">{label}</label>
-    <input type="text"
+    <input type="Text"
            id={name}
            name={name}
            value={vlaue}

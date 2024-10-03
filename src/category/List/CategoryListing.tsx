@@ -20,7 +20,7 @@ const CategoryListing = ({data, deleteCategory,handleEdit}: Props) => {
 
   return (
       <div className="grid lg:grid-cols-4 grid-cols-1 w-full gap-2 mt-8  ">
-      {data?.data.map((category) => {
+      {data?.data?.map((category) => {
         return (
           
           <div className="flex-1 bg-white p-4 rounded shadow-lg border border-pink-100 " key={category._id}>

@@ -36,6 +36,7 @@ const handleSubmit = (vlaues: any,  ) => {
     initialValues={initialValues}
     validationSchema={validationSchema}
     onSubmit={handleSubmit}
+    enableReinitialize={true}
   > 
   {
     (formikProp) => {

@@ -6,7 +6,6 @@ import { useEditCategoryMutation, useGetSingleCategoryQuery } from '../../slice/
 import { useParams } from 'react-router-dom'
 
 
-
 const EditCategoryWrapper = () => {
 const {id}=useParams()
 const [editCategory]=useEditCategoryMutation()

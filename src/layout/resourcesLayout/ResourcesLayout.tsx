@@ -1,10 +1,15 @@
-import React from 'react'
+
+import AddResourcesWrapper from '../../resources /add/AddResourcesWrapper'
+import ResourcesListWrapper from '../../resources /list/ResourcesListWrapper'
 
 type Props = {}
 
-const ResourcesLayout = (props: Props) => {
+const ResourcesLayout = () => {
   return (
-    <div>ResourcesLayout</div>
+    <>
+    <AddResourcesWrapper/>
+    <ResourcesListWrapper/>
+    </>
   )
 }
 

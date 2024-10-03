@@ -20,6 +20,7 @@ const LoginWrapper = () => {
   });
 
   const handleSubmit = async (values: any) => {
+  
     try {
       const response = await login(values);
       console.log(response,"res")
@@ -27,6 +28,7 @@ const LoginWrapper = () => {
       console.log("token", authToken)
       if (authToken) {
         localStorage.setItem('authToken', authToken);
+        window.location.reload()
         navigate('/home');
         toast.success('Logged in successfully');
       } else {

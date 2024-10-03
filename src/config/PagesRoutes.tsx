@@ -12,34 +12,47 @@ import SubcategoryListWrapper from '../subcategory/list/SubcategoryListWrapper'
 import EditSubcategoryWrapper from '../subcategory/Edit/EditSubcategoryWrapper'
 import AddResourcesWrapper from '../resources /add/AddResourcesWrapper'
 import ResourcesListWrapper from '../resources /list/ResourcesListWrapper'
+import ResourcesLayout from '../layout/resourcesLayout/ResourcesLayout'
+import WithoutLogin from '../components/authentication/WithoutLogin'
+import Auth from '../components/authentication/auth'
+import RegistartionWrapper from '../registration/RegistartionWrapper'
+
 
 
 
 const PagesRoutes = () => {
 
 const router = createBrowserRouter([
-
+ // Login page routes
   {
     path: "/login",
-    element: <LoginWrapper/>
+    element: <WithoutLogin> <LoginWrapper/> </WithoutLogin>  
   },
 
+{
+  path: "/registration",
+  element: <WithoutLogin> <RegistartionWrapper/> </WithoutLogin> 
+},
+
+
+
+    // Category page routes
   {
     path: "/home",
-    element: <HomeLayout/>
+    element: <Auth> <HomeLayout/> </Auth>
   },
 
   {
     path: "/addcategory",
-    element: <AddCategoryFormWrapper/>
-  },
+    element: <Auth> <AddCategoryFormWrapper/> </Auth> 
+  }, 
   {
     path: "/edit-category/:id",
-    element: <EditCategoryWrapper/>
+    element:  <Auth><EditCategoryWrapper/> </Auth>
   },
   {
     path: "/getcategory",
-    element: <CategoryLisitingWrapper/>
+    element: <Auth> <CategoryLisitingWrapper/> </Auth>
   },
 
   
@@ -69,7 +82,14 @@ const router = createBrowserRouter([
 {
   path: "/resourceslist",
   element: <ResourcesListWrapper/>
-}
+},
+
+{
+  path:"/resources/:subcategoryId",
+  element: <ResourcesLayout/>
+},
+
+
 
 
 ])
