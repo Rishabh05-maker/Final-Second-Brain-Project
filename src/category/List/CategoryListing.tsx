@@ -3,6 +3,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import AddSubcategoryWrapper from "../../subcategory/add/AddSubcategoryWrapper";
 import SubcategoryListWrapper from "../../subcategory/list/SubcategoryListWrapper";
+import ActionToggleButton from "../../components/actiontogglebutton/ActionToggleButton";
 
 interface Category {
   id: number;
@@ -45,6 +46,7 @@ const CategoryListing = ({data, deleteCategory,handleEdit}: Props) => {
         );
       })}
    </div>
+   
   );
 };
 

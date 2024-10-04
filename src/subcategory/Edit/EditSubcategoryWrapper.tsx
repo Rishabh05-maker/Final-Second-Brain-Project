@@ -11,7 +11,7 @@ const EditSubcategoryWrapper = () => {
 
 
   const initialValues = {
-    subcategoryName: data?.data.subcategoryName||""  // Initialize with fetched data or empty string
+    subcategoryName: data?.data.subcategoryName||""  
   }
 
   const validationSchema = object({

@@ -19,7 +19,7 @@ const CategorySlice = ApiSlice.injectEndpoints({
                 method: "GET",
             
             }),
-            providesTags: ["category", "delete", "update"]
+            providesTags: ["category", "categorydelete", "categoryupdate"]
         }),
         
         GetSingleCategory: builder.query({
@@ -36,7 +36,7 @@ const CategorySlice = ApiSlice.injectEndpoints({
                 method: "DELETE",
                 body: id
             }),
-            invalidatesTags: ["delete"]
+            invalidatesTags: ["categorydelete"]
         }),
 
       editCategory: builder.mutation({
@@ -45,7 +45,7 @@ const CategorySlice = ApiSlice.injectEndpoints({
             method: "PATCH",
             body: data
         }),
-        invalidatesTags: ["update"]
+        invalidatesTags: ["categoryupdate"]
       })
  
      

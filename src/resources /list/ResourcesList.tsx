@@ -14,8 +14,8 @@ type Props = {
   }>
 };
 
-const ResourcesList = ({ data }: Props) => {
-  console.log(data.data.resources, "hemangt")
+const ResourcesList = ({ data, DeleteResource, handleEdit }: Props) => {
+
   return (
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-4">Resources List</h2>
@@ -46,10 +46,10 @@ const ResourcesList = ({ data }: Props) => {
               </td>
               <td className="p-2 border border-gray-300">{resources.description}</td>
               <td className="p-2 border border-gray-300">
-                <button className="bg-yellow-300 text-gray-800 px-3 py-1 mr-2 rounded hover:bg-yellow-400 transition">
+                <button onClick={()=>{handleEdit(resources._id)}} className="bg-yellow-300 text-gray-800 px-3 py-1 mr-2 rounded hover:bg-yellow-400 transition">
                   Edit
                 </button>
-                <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
+                <button onClick={()=>{DeleteResource(resources._id)}} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
                   Delete
                 </button>
               </td>

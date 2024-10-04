@@ -8,15 +8,7 @@ const AddSubcategoryForm = ({ formikProp }: Props) => {
   return (
     <>
       <div className="flex justify-start gap-3 mt-4 ml-4 m-auto">
-        {/* Submit button */}
-        <button
-          type="submit"
-          disabled={isSubmitting} // disable when submitting
-          className={`flex items-center gap-1 text-gray-700 hover:text-gray-900 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-        >
-          <IoIosAddCircle className="text-slate-600" />
-        </button>
-
+        
         {/* Subcategory input field */}
         <AtmTextField
           className="border-pink-300 p-0 w-full placeholder:text-sm"
@@ -25,7 +17,17 @@ const AddSubcategoryForm = ({ formikProp }: Props) => {
           vlaue={values.subcategoryName} // updated from `vlaue`
           onChange={handleChange}
         />
+
+        {/* Submit button */}
+        <button
+          type="submit"
+          disabled={isSubmitting} // disable when submitting
+          className={`flex items-center gap-1 text-gray-700 hover:text-gray-900 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+        >
+          <IoIosAddCircle className="text-slate-600" />
+        </button>
       </div>
+
 
       <p>
         <ErrorMessage name="subcategoryName" />

@@ -16,6 +16,7 @@ import ResourcesLayout from '../layout/resourcesLayout/ResourcesLayout'
 import WithoutLogin from '../components/authentication/WithoutLogin'
 import Auth from '../components/authentication/auth'
 import RegistartionWrapper from '../registration/RegistartionWrapper'
+import EditResourcesWrapper from '../resources /edit/EditResourcesWrapper'
 
 
 
@@ -88,8 +89,10 @@ const router = createBrowserRouter([
   path:"/resources/:subcategoryId",
   element: <ResourcesLayout/>
 },
-
-
+{
+  path:"/edit-resource/:id",
+  element: <EditResourcesWrapper/>
+},
 
 
 ])

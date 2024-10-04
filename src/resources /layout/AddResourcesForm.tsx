@@ -6,7 +6,7 @@ type Props = {
 };
 
 const AddResourcesForm = ({ formikProps }: Props) => {
-  const { values, handleChange } = formikProps;
+  const { values, handleChange, isSubmitting } = formikProps;
 
   return (
     <div className="p-4">
@@ -48,6 +48,7 @@ const AddResourcesForm = ({ formikProps }: Props) => {
       <div className="mt-4">
         <button
           type="submit"
+          disabled={isSubmitting}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
         >
           Save

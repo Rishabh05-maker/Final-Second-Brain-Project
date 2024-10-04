@@ -14,6 +14,9 @@ export const ApiSlice = createApi({
             return headers;
         }
     }),
-    tagTypes: ["category", "delete", "update"],
+    tagTypes: ["category", "categorydelete", "categoryupdate", "subcategory", "subcategorydelete", "subcategoryupdate",
+                "resource", "resourcedelete", "resourceupdate"
+    ],
+    
     endpoints: () => ({})
 });
